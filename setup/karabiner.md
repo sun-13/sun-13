@@ -37,77 +37,70 @@ Save the rule as an importable asset, then enable it from the UI.
 
 1. Write the JSON below to `~/.config/karabiner/assets/complex_modifications/swap-enter-keys.json`:
 
-   ```json
-   {
-       "title": "Swap Enter & Shift+Enter and CMD+Enter",
-       "rules": [
-           {
-               "description": "Swap Enter & Shift+Enter and CMD+Enter",
-               "manipulators": [
-                   {
-                       "conditions": [
-                           {
-                               "bundle_identifiers": [
-                                   "com.hnc.Discord",
-                                   "com.openai.chat",
-                                   "com.anthropic.claudefordesktop",
-                                   "com.openai.codex"
-                               ],
-                               "type": "frontmost_application_if"
-                           }
-                       ],
-                       "from": {
-                           "key_code": "return_or_enter",
-                           "modifiers": { "mandatory": ["shift"] }
-                       },
-                       "to": [{ "key_code": "return_or_enter" }],
-                       "type": "basic"
-                   },
-                   {
-                       "conditions": [
-                           {
-                               "bundle_identifiers": [
-                                   "com.hnc.Discord",
-                                   "com.openai.chat",
-                                   "com.anthropic.claudefordesktop",
-                                   "com.openai.codex"
-                               ],
-                               "type": "frontmost_application_if"
-                           }
-                       ],
-                       "from": {
-                           "key_code": "return_or_enter",
-                           "modifiers": { "mandatory": ["command"] }
-                       },
-                       "to": [{ "key_code": "return_or_enter" }],
-                       "type": "basic"
-                   },
-                   {
-                       "conditions": [
-                           {
-                               "bundle_identifiers": [
-                                   "com.hnc.Discord",
-                                   "com.openai.chat",
-                                   "com.anthropic.claudefordesktop",
-                                   "com.openai.codex"
-                               ],
-                               "type": "frontmost_application_if"
-                           }
-                       ],
-                       "from": { "key_code": "return_or_enter" },
-                       "to": [
-                           {
-                               "key_code": "return_or_enter",
-                               "modifiers": ["shift"]
-                           }
-                       ],
-                       "type": "basic"
-                   }
-               ]
-           }
-       ]
-   }
-   ```
+```json
+{
+    "description": "Swap Enter & Shift+Enter and CMD+Enter",
+    "manipulators": [
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com.hnc.Discord",
+                        "com.openai.chat",
+                        "com.anthropic.claudefordesktop",
+                        "com.openai.codex"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "from": {
+                "key_code": "return_or_enter",
+                "modifiers": { "mandatory": ["shift"] }
+            },
+            "to": [{ "key_code": "return_or_enter" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com.hnc.Discord",
+                        "com.openai.chat",
+                        "com.anthropic.claudefordesktop"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "from": {
+                "key_code": "return_or_enter",
+                "modifiers": { "mandatory": ["command"] }
+            },
+            "to": [{ "key_code": "return_or_enter" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com.hnc.Discord",
+                        "com.openai.chat",
+                        "com.anthropic.claudefordesktop"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "from": { "key_code": "return_or_enter" },
+            "to": [
+                {
+                    "key_code": "return_or_enter",
+                    "modifiers": ["shift"]
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
+```
 
 2. Open **Karabiner-Elements → Settings → Complex Modifications → Add rule**.
 3. Find **Swap Enter & Shift+Enter and CMD+Enter** and click **Enable**.
