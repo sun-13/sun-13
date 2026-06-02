@@ -66,7 +66,8 @@ Save the rule as an importable asset, then enable it from the UI.
                     "bundle_identifiers": [
                         "com.hnc.Discord",
                         "com.openai.chat",
-                        "com.anthropic.claudefordesktop"
+                        "com.anthropic.claudefordesktop",
+                        "com.openai.codex"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -84,7 +85,8 @@ Save the rule as an importable asset, then enable it from the UI.
                     "bundle_identifiers": [
                         "com.hnc.Discord",
                         "com.openai.chat",
-                        "com.anthropic.claudefordesktop"
+                        "com.anthropic.claudefordesktop",
+                        "com.openai.codex"
                     ],
                     "type": "frontmost_application_if"
                 }
