@@ -19,6 +19,7 @@ Only active when one of these apps is frontmost:
 - Discord — `com.hnc.Discord`
 - ChatGPT — `com.openai.chat`
 - Claude — `com.anthropic.claudefordesktop`
+- Codex — `com.openai.codex`
 
 ## Install
 
@@ -49,7 +50,8 @@ Save the rule as an importable asset, then enable it from the UI.
                                "bundle_identifiers": [
                                    "com.hnc.Discord",
                                    "com.openai.chat",
-                                   "com.anthropic.claudefordesktop"
+                                   "com.anthropic.claudefordesktop",
+                                   "com.openai.codex"
                                ],
                                "type": "frontmost_application_if"
                            }
@@ -67,7 +69,8 @@ Save the rule as an importable asset, then enable it from the UI.
                                "bundle_identifiers": [
                                    "com.hnc.Discord",
                                    "com.openai.chat",
-                                   "com.anthropic.claudefordesktop"
+                                   "com.anthropic.claudefordesktop",
+                                   "com.openai.codex"
                                ],
                                "type": "frontmost_application_if"
                            }
@@ -85,7 +88,8 @@ Save the rule as an importable asset, then enable it from the UI.
                                "bundle_identifiers": [
                                    "com.hnc.Discord",
                                    "com.openai.chat",
-                                   "com.anthropic.claudefordesktop"
+                                   "com.anthropic.claudefordesktop",
+                                   "com.openai.codex"
                                ],
                                "type": "frontmost_application_if"
                            }
