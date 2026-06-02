@@ -33,9 +33,10 @@ Grant the requested Input Monitoring and Accessibility permissions on first laun
 
 ## Configure
 
-Save the rule as an importable asset, then enable it from the UI.
+Create the rule in-app, then enable it from the UI.
 
-1. Write the JSON below to `~/.config/karabiner/assets/complex_modifications/swap-enter-keys.json`:
+1. Open **Karabiner-Elements → Settings → Complex Modifications → Add your own rule**.
+2. Paste the JSON below and save:
 
 ```json
 {
@@ -104,7 +105,6 @@ Save the rule as an importable asset, then enable it from the UI.
 }
 ```
 
-2. Open **Karabiner-Elements → Settings → Complex Modifications → Add rule**.
 3. Find **Swap Enter & Shift+Enter and CMD+Enter** and click **Enable**.
 
 ## Verify
