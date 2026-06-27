@@ -8,18 +8,17 @@ My [Karabiner-Elements](https://karabiner-elements.pqrs.org/) key remappings on 
 
 In chat apps, swap what **Enter** does so I can write multi-line messages naturally:
 
-| Key | Sends |
-| --- | --- |
-| `Enter` | newline (was: send) |
+| Key           | Sends                       |
+| ------------- | --------------------------- |
+| `Enter`       | newline (was: send)         |
 | `Shift+Enter` | send message (was: newline) |
-| `Cmd+Enter` | send message |
+| `Cmd+Enter`   | send message                |
 
 Only active when one of these apps is frontmost:
 
 - Discord — `com.hnc.Discord`
 - ChatGPT — `com.openai.chat`
 - Claude — `com.anthropic.claudefordesktop`
-- Codex — `com.openai.codex`
 
 ## Install
 
@@ -39,73 +38,70 @@ Save the rule as an importable asset, then enable it from the UI.
 
    ```json
    {
-       "title": "Swap Enter & Shift+Enter and CMD+Enter",
-       "rules": [
+     "title": "Swap Enter & Shift+Enter and CMD+Enter",
+     "rules": [
+       {
+         "description": "Swap Enter & Shift+Enter and CMD+Enter",
+         "manipulators": [
            {
-               "description": "Swap Enter & Shift+Enter and CMD+Enter",
-               "manipulators": [
-                   {
-                       "conditions": [
-                           {
-                               "bundle_identifiers": [
-                                   "com.hnc.Discord",
-                                   "com.openai.chat",
-                                   "com.anthropic.claudefordesktop",
-                                   "com.openai.codex"
-                               ],
-                               "type": "frontmost_application_if"
-                           }
-                       ],
-                       "from": {
-                           "key_code": "return_or_enter",
-                           "modifiers": { "mandatory": ["shift"] }
-                       },
-                       "to": [{ "key_code": "return_or_enter" }],
-                       "type": "basic"
-                   },
-                   {
-                       "conditions": [
-                           {
-                               "bundle_identifiers": [
-                                   "com.hnc.Discord",
-                                   "com.openai.chat",
-                                   "com.anthropic.claudefordesktop",
-                                   "com.openai.codex"
-                               ],
-                               "type": "frontmost_application_if"
-                           }
-                       ],
-                       "from": {
-                           "key_code": "return_or_enter",
-                           "modifiers": { "mandatory": ["command"] }
-                       },
-                       "to": [{ "key_code": "return_or_enter" }],
-                       "type": "basic"
-                   },
-                   {
-                       "conditions": [
-                           {
-                               "bundle_identifiers": [
-                                   "com.hnc.Discord",
-                                   "com.openai.chat",
-                                   "com.anthropic.claudefordesktop",
-                                   "com.openai.codex"
-                               ],
-                               "type": "frontmost_application_if"
-                           }
-                       ],
-                       "from": { "key_code": "return_or_enter" },
-                       "to": [
-                           {
-                               "key_code": "return_or_enter",
-                               "modifiers": ["shift"]
-                           }
-                       ],
-                       "type": "basic"
-                   }
-               ]
+             "conditions": [
+               {
+                 "bundle_identifiers": [
+                   "com.hnc.Discord",
+                   "com.openai.chat",
+                   "com.anthropic.claudefordesktop"
+                 ],
+                 "type": "frontmost_application_if"
+               }
+             ],
+             "from": {
+               "key_code": "return_or_enter",
+               "modifiers": { "mandatory": ["shift"] }
+             },
+             "to": [{ "key_code": "return_or_enter" }],
+             "type": "basic"
+           },
+           {
+             "conditions": [
+               {
+                 "bundle_identifiers": [
+                   "com.hnc.Discord",
+                   "com.openai.chat",
+                   "com.anthropic.claudefordesktop"
+                 ],
+                 "type": "frontmost_application_if"
+               }
+             ],
+             "from": {
+               "key_code": "return_or_enter",
+               "modifiers": { "mandatory": ["command"] }
+             },
+             "to": [{ "key_code": "return_or_enter" }],
+             "type": "basic"
+           },
+           {
+             "conditions": [
+               {
+                 "bundle_identifiers": [
+                   "com.hnc.Discord",
+                   "com.openai.chat",
+                   "com.anthropic.claudefordesktop"
+                 ],
+                 "type": "frontmost_application_if"
+               }
+             ],
+             "from": { "key_code": "return_or_enter" },
+             "to": [
+               {
+                 "key_code": "return_or_enter",
+                 "modifiers": ["shift"]
+               }
+             ],
+             "type": "basic"
            }
-       ]
+         ]
+       }
+     ]
    }
    ```
 
