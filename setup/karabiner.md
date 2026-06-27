@@ -8,18 +8,17 @@ My [Karabiner-Elements](https://karabiner-elements.pqrs.org/) key remappings on 
 
 In chat apps, swap what **Enter** does so I can write multi-line messages naturally:
 
-| Key | Sends |
-| --- | --- |
-| `Enter` | newline (was: send) |
+| Key           | Sends                       |
+| ------------- | --------------------------- |
+| `Enter`       | newline (was: send)         |
 | `Shift+Enter` | send message (was: newline) |
-| `Cmd+Enter` | send message |
+| `Cmd+Enter`   | send message                |
 
 Only active when one of these apps is frontmost:
 
 - Discord — `com.hnc.Discord`
 - ChatGPT — `com.openai.chat`
 - Claude — `com.anthropic.claudefordesktop`
-- Codex — `com.openai.codex`
 
 ## Install
 
@@ -48,8 +47,7 @@ Create the rule in-app, then enable it from the UI.
                     "bundle_identifiers": [
                         "com.hnc.Discord",
                         "com.openai.chat",
-                        "com.anthropic.claudefordesktop",
-                        "com.openai.codex"
+                        "com.anthropic.claudefordesktop"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -67,8 +65,7 @@ Create the rule in-app, then enable it from the UI.
                     "bundle_identifiers": [
                         "com.hnc.Discord",
                         "com.openai.chat",
-                        "com.anthropic.claudefordesktop",
-                        "com.openai.codex"
+                        "com.anthropic.claudefordesktop"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -86,8 +83,7 @@ Create the rule in-app, then enable it from the UI.
                     "bundle_identifiers": [
                         "com.hnc.Discord",
                         "com.openai.chat",
-                        "com.anthropic.claudefordesktop",
-                        "com.openai.codex"
+                        "com.anthropic.claudefordesktop"
                     ],
                     "type": "frontmost_application_if"
                 }
