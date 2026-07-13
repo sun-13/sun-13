@@ -17,7 +17,6 @@ In chat apps, swap what **Enter** does so I can write multi-line messages natura
 Only active when one of these apps is frontmost:
 
 - Discord — `com.hnc.Discord`
-- ChatGPT — `com.openai.chat`
 - Claude — `com.anthropic.claudefordesktop`
 
 ## Install
@@ -46,7 +45,6 @@ Create the rule in-app, then enable it from the UI.
                 {
                     "bundle_identifiers": [
                         "com.hnc.Discord",
-                        "com.openai.chat",
                         "com.anthropic.claudefordesktop"
                     ],
                     "type": "frontmost_application_if"
@@ -64,7 +62,6 @@ Create the rule in-app, then enable it from the UI.
                 {
                     "bundle_identifiers": [
                         "com.hnc.Discord",
-                        "com.openai.chat",
                         "com.anthropic.claudefordesktop"
                     ],
                     "type": "frontmost_application_if"
@@ -82,7 +79,6 @@ Create the rule in-app, then enable it from the UI.
                 {
                     "bundle_identifiers": [
                         "com.hnc.Discord",
-                        "com.openai.chat",
                         "com.anthropic.claudefordesktop"
                     ],
                     "type": "frontmost_application_if"
