@@ -4,7 +4,7 @@ My [Karabiner-Elements](https://karabiner-elements.pqrs.org/) key remappings on 
 
 ## Rules
 
-### Swap Enter & Shift+Enter
+### Swap Enter & Shift+Enter and CMD+Enter
 
 In chat apps, swap what **Enter** does so I can write multi-line messages naturally:
 
@@ -12,11 +12,11 @@ In chat apps, swap what **Enter** does so I can write multi-line messages natura
 | ------------- | --------------------------- |
 | `Enter`       | newline (was: send)         |
 | `Shift+Enter` | send message (was: newline) |
+| `Cmd+Enter`   | send message                |
 
 Only active when one of these apps is frontmost:
 
 - Discord — `com.hnc.Discord`
-- ChatGPT — `com.openai.chat`
 - Claude — `com.anthropic.claudefordesktop`
 
 ## Install
@@ -38,14 +38,13 @@ Create the rule in-app, then enable it from the UI.
 
 ```json
 {
-    "description": "Swap Enter & Shift+Enter",
+    "description": "Swap Enter & Shift+Enter and CMD+Enter",
     "manipulators": [
         {
             "conditions": [
                 {
                     "bundle_identifiers": [
                         "com.hnc.Discord",
-                        "com.openai.chat",
                         "com.anthropic.claudefordesktop"
                     ],
                     "type": "frontmost_application_if"
@@ -63,7 +62,23 @@ Create the rule in-app, then enable it from the UI.
                 {
                     "bundle_identifiers": [
                         "com.hnc.Discord",
-                        "com.openai.chat",
+                        "com.anthropic.claudefordesktop"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "from": {
+                "key_code": "return_or_enter",
+                "modifiers": { "mandatory": ["command"] }
+            },
+            "to": [{ "key_code": "return_or_enter" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com.hnc.Discord",
                         "com.anthropic.claudefordesktop"
                     ],
                     "type": "frontmost_application_if"
@@ -82,15 +97,14 @@ Create the rule in-app, then enable it from the UI.
 }
 ```
 
-3. Find **Swap Enter & Shift+Enter** and click **Enable**.
+3. Find **Swap Enter & Shift+Enter and CMD+Enter** and click **Enable**.
 
 ## Verify
 
 Focus one of the listed apps and type in its message box:
 
 - `Enter` adds a new line without sending.
-- `Shift+Enter` sends the message.
-- In ChatGPT, `Cmd+Enter` works natively and is no longer remapped here.
+- `Shift+Enter` or `Cmd+Enter` sends the message.
 
 To add more apps, append their bundle identifiers to each `bundle_identifiers` list. Find an app's identifier with:
 
