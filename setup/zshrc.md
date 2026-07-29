@@ -31,7 +31,7 @@ op-warmup() {
   rm -f "$tmp"
   echo warmup | /Applications/1Password.app/Contents/MacOS/op-ssh-sign \
     -Y sign -n git -f <(git config user.signingkey) > /dev/null \
-  && echo "both keys approved"
+  && echo "ssh - GitHub signing key and auth key both approved"
 }
 ```
 
@@ -50,6 +50,6 @@ After restarting 1Password, run:
 op-warmup
 ```
 
-Approve the 1Password prompts that appear — it prints `both keys approved` when done. A following `git fetch` / signed commit should go through without further prompts.
+Approve the 1Password prompts that appear — it prints `ssh - GitHub signing key and auth key both approved` when done. A following `git fetch` / signed commit should go through without further prompts.
 
 Note: 1Password remembers approvals per client application (usually attributed to the terminal app), so run `op-warmup` from the same terminal you use git in.
