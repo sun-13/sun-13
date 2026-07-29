@@ -52,4 +52,4 @@ op-warmup
 
 Approve the 1Password prompts that appear — it prints `ssh - GitHub signing key and auth key both approved` when done. A following `git fetch` / signed commit should go through without further prompts.
 
-Note: 1Password remembers approvals per client application (usually attributed to the terminal app), so run `op-warmup` from the same terminal you use git in.
+Note: 1Password scopes approvals per client application by default. Check **"approve for all applications"** on both prompts — then a single `op-warmup` run from any terminal covers git in every app (editor terminals, GUI clients) until 1Password next quits.
