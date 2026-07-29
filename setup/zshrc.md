@@ -25,15 +25,27 @@ Add to `~/.zshrc`:
 
 ```sh
 op-warmup() {
-  local tmp=$(mktemp)
-  ssh-add -L | grep "GitHub Auth Key" > "$tmp"
-  echo warmup | ssh-keygen -Y sign -n warmup -f "$tmp" > /dev/null 2>&1
-  rm -f "$tmp"
-  echo warmup | /Applications/1Password.app/Contents/MacOS/op-ssh-sign \
-    -Y sign -n git -f <(git config user.signingkey) > /dev/null \
-  && echo "ssh - GitHub signing key and auth key both approved"
+  local tmp
+  tmp=$(mktemp) || return 1
+  trap 'rm -f "$tmp"' EXIT
+  if ! ssh-add -L | grep -m 1 "GitHub Auth Key" > "$tmp"; then
+    echo "op-warmup: GitHub Auth Key not found in ssh-agent (1Password locked?)" >&2
+    return 1
+  fi
+  if ! echo warmup | ssh-keygen -Y sign -n warmup -f "$tmp" > /dev/null 2>&1; then
+    echo "op-warmup: auth key approval failed or was denied" >&2
+    return 1
+  fi
+  if ! echo warmup | /Applications/1Password.app/Contents/MacOS/op-ssh-sign \
+      -Y sign -n git -f <(git config user.signingkey) > /dev/null 2>&1; then
+    echo "op-warmup: signing key approval failed or was denied" >&2
+    return 1
+  fi
+  echo "ssh - GitHub signing key and auth key both approved"
 }
 ```
+
+Each step is checked: if a key is missing or an approval is denied, the function names the failed step on stderr and returns 1 — the success line only prints when both keys really went through. The `trap ... EXIT` is function-scoped in zsh, so the temp file is cleaned up even on Ctrl-C.
 
 ### How it works
 
